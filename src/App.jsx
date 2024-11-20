@@ -121,9 +121,6 @@ function App() {
 }
 export default App;
 
-
-
-
 const Stage = ({
   label,
   id,
@@ -148,7 +145,7 @@ const Stage = ({
       onDragOver={(e) => {
         e.preventDefault();
       }}
-      className={`Stage rounded p-4 flex flex-col text-lg font-semibold w-full h-fit gap-4 flex-1 border    bg-[#d5d7e9] overflow-auto ${
+      className={`Stage rounded p-4 flex flex-col text-lg font-semibold w-full h-fit min-h-[90dvh] gap-4 flex-1 border bg-[#d5d7e9] overflow-auto ${
         isActive ? "active-stage" : ""
       }`}
     >
@@ -162,10 +159,6 @@ const Stage = ({
     </div>
   );
 };
-
-
-
-
 
 const TaskForm = ({ onClose, onSubmit }) => {
   const [name, setName] = useState("");
@@ -193,7 +186,7 @@ const TaskForm = ({ onClose, onSubmit }) => {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          required 
+          required
         />
 
         <label>Experience:</label>
@@ -230,10 +223,6 @@ const TaskForm = ({ onClose, onSubmit }) => {
   );
 };
 
-
-
-
-
 const Item = ({
   id,
   name,
@@ -266,19 +255,19 @@ const Item = ({
       className="Item rounded p-2 bg-white flex flex-col shadow-[0px_5px_10px_rgba(0,0,0,0.3)]"
     >
       {/* <span className="flex justify-between bg-inherit pb-2"> */}
-        <h3 className="bg-inherit text-xl text-left text-nowrap">{name}</h3>
-        <p className="bg-inherit text-sm pb-2 text-right"> {Experience} Years</p>
-     
+      <h3 className="bg-inherit text-xl text-left text-nowrap">{name}</h3>
+      <p className="bg-inherit text-sm pb-2 text-right"> {Experience} Years</p>
+
       <p className="bg-inherit text-justify text-xs pb-3">{description}</p>
       <span className="flex justify-between bg-inherit">
-      <p className="bg-inherit items-end text-left text-lg">{Skills}</p>
-    <button
-    onClick={() => deleteTask(id, parentId)}
-    className="bg-[#8b8bda] text-white rounded h-6 w-6 "
-  >
-    D
-  </button>
-  </span>
+        <p className="bg-inherit items-end text-left text-lg">{Skills}</p>
+        <button
+          onClick={() => deleteTask(id, parentId)}
+          className="bg-[#8b8bda] text-white rounded h-6 w-6 "
+        >
+          D
+        </button>
+      </span>
     </div>
   );
 };
